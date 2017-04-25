@@ -19,8 +19,8 @@ ekeynumbers = []
 enew = []
 eend = []
 dnumbers = []
-dkeynumlist = []
-dnewnums = []
+dkeynumbers = []
+dnew = []
 dend = []
 while command != "q":
     if command == "e":
@@ -55,19 +55,19 @@ while command != "q":
         for x in dmessage:
             dnumbers.append(associations.find(x))
         for y in dkey:
-            dkeynumlist.append(associations.find(y))
-        dzip = list(zip(dnumbers, dkeynumlist))
+            dkeynumbers.append(associations.find(y))
+        dzip = list(zip(dnumbers, dkeynumbers))
         for a in dzip:
             if a[0]-a[1] >= 0:
-                dnewnums.append(a[0] - a[1])
+                dnew.append(a[0] - a[1])
             else:
-                dnewnums.append(a[0] - a[1] + len(associations))
-        for i in dnewnums:
+                dnew.append(a[0] - a[1] + len(associations))
+        for i in dnew:
             dend.append(associations[i])
         print(''.join(dend))
         dnumbers = []
-        dkeynumlist = []
-        dnewnums = []
+        dkeynumbers = []
+        dnew = []
         dend = []
     if command != "d" and command != "e" and command !="q":
         print("Did not understand command, try again.")
