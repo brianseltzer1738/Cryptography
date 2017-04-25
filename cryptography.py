@@ -12,51 +12,65 @@ To get a character back from this numeric representation, get the character at t
 in the string (using associations[index]).
 MUST ENCRYPT AND DECRYPT 
 """
-
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
-repeatasoc="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
-order=str(input("Enter e to encrypt, d to decrypt, or q to quit: "))
-while order  not in ["q"]:
-    if order =="e":
-        one=input("Message: ")
-        message=list(one)
-        decode=input("Key: ")
-        key= list(decode)
-        for a in range(0, len(message)):
-            message[a]=associations.find(message[a])
-        for a in range(0, len(key)):
-            key[a]=associations.find(key[a])
-        while len(key)<len(message):
-            key.extend(key)
-        ab=[a+b for a,b in zip(message, key)]
-        for a in range(0, len(message)):
-            thingy=repeatasoc[ab[a]]
-            print(thingy,end="")
-        print( )
-    if order=="d":
-        listmsg=input("Message: ")
-        message=list(listmsg)
-        key1=input("Key: ")
-        key= list(key1)
-        for a in range(0, len(message)):
-            message[a]=associations.find(message[a])
-        for a in range(0, len(key)):
-            key[a]=associations.find(key[a])
-        while len(key)<len(message):
-            key.extend(key)
-        ab=[a-b for a,b in zip(message, key)]
-        for a in range(0, len(message)):
-            thingy=repeatasoc[ab[a]]
-            print(thingy,end="")
-        print( )
-    if order not in ["e", "d"]:
+command = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+enumbers = []
+ekeynumbers = []
+enew = []
+eend = []
+dnumbers = []
+dkeynumlist = []
+dnewnums = []
+dend = []
+while command != "q":
+    if command == "e":
+        emessage = input("Message: ")
+        ekey = input("Key: ")
+        eeekey = ekey
+        while len(ekey) < len(emessage):
+            ekey = ekey + eeekey
+        for x in emessage:
+            enumbers.append(associations.find(x))
+        for y in ekey:
+            ekeynumbers.append(associations.find(y))
+        ezip = list(zip(enumbers, ekeynumbers))
+        for a in ezip:
+            if a[0]+a[1] < len(associations):
+                enew.append(a[0] + a[1])
+            else:
+                enew.append(a[0] + a[1] - len(associations))
+        for i in enew:
+            eend.append(associations[i])
+        print(''.join(eend))
+        enumbers = []
+        ekeynumbers = []
+        enew = []
+        eend = []
+    if command == "d":
+        dmessage = input("Message: ")
+        dkey = input("Key: ")
+        deekey = dkey
+        while len(dkey) < len(dmessage):
+            dkey = dkey + deekey
+        for x in dmessage:
+            dnumbers.append(associations.find(x))
+        for y in dkey:
+            dkeynumlist.append(associations.find(y))
+        dzip = list(zip(dnumbers, dkeynumlist))
+        for a in dzip:
+            if a[0]-a[1] >= 0:
+                dnewnums.append(a[0] - a[1])
+            else:
+                dnewnums.append(a[0] - a[1] + len(associations))
+        for i in dnewnums:
+            dend.append(associations[i])
+        print(''.join(dend))
+        dnumbers = []
+        dkeynumlist = []
+        dnewnums = []
+        dend = []
+    if command != "d" and command != "e" and command !="q":
         print("Did not understand command, try again.")
-    order=input("Enter e to encrypt, d to decrypt, or q to quit: ")
-if order=="q":
-        print("Goodbye!")
-        
-        
-
-"""
-must convert characters to numbers and back before actual math
-"""
+    command = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+if command == "q":
+    print("Goodbye!")
