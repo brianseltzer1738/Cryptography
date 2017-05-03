@@ -30,6 +30,11 @@ while x == 1:
         for msg in g:
             n.append(associations.find(msg))
         print(m,n)
+        n=n*(len(y)//len(g)+1)
+        print(n)
+           
+   
+   
     if wow == "q":
         x = 2
     
