@@ -13,64 +13,24 @@ in the string (using associations[index]).
 MUST ENCRYPT AND DECRYPT 
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
-command = input("Enter e to encrypt, d to decrypt, or q to quit: ")
-enumbers = []
-ekeynumbers = []
-enew = []
-eend = []
-dnumbers = []
-dkeynumbers = []
-dnew = []
-dend = []
-while command != "q":
-    if command == "e":
-        emessage = input("Message: ")
-        ekey = input("Key: ")
-        eeekey = ekey
-        while len(ekey) < len(emessage):
-            ekey = ekey + eeekey
-        for x in emessage:
-            enumbers.append(associations.find(x))
-        for y in ekey:
-            ekeynumbers.append(associations.find(y))
-        ezip = list(zip(enumbers, ekeynumbers))
-        for a in ezip:
-            if a[0]+a[1] < len(associations):
-                enew.append(a[0] + a[1])
-            else:
-                enew.append(a[0] + a[1] - len(associations))
-        for i in enew:
-            eend.append(associations[i])
-        print(''.join(eend))
-        enumbers = []
-        ekeynumbers = []
-        enew = []
-        eend = []
-    if command == "d":
-        dmessage = input("Message: ")
-        dkey = input("Key: ")
-        deekey = dkey
-        while len(dkey) < len(dmessage):
-            dkey = dkey + deekey
-        for x in dmessage:
-            dnumbers.append(associations.find(x))
-        for y in dkey:
-            dkeynumbers.append(associations.find(y))
-        dzip = list(zip(dnumbers, dkeynumbers))
-        for a in dzip:
-            if a[0]-a[1] >= 0:
-                dnew.append(a[0] - a[1])
-            else:
-                dnew.append(a[0] - a[1] + len(associations))
-        for i in dnew:
-            dend.append(associations[i])
-        print(''.join(dend))
-        dnumbers = []
-        dkeynumbers = []
-        dnew = []
-        dend = []
-    if command != "d" and command != "e" and command !="q":
-        print("Did not understand command, try again.")
-    command = input("Enter e to encrypt, d to decrypt, or q to quit: ")
-if command == "q":
-    print("Goodbye!")
+b=list(associations)
+
+x = 1
+while x == 1: 
+    wow = input("Enter e to encrypt, d to decrypt, or q to quit: ")
+    if wow == "e":
+        y = input("Message: ")
+        g = input("Key: ")
+        y = list(y)
+        g = list(g)
+        m = []
+        for msg in y:
+            m.append(associations.find(msg))
+        n = []
+        for msg in g:
+            n.append(associations.find(msg))
+        print(m,n)
+    if wow == "q":
+        x = 2
+    
+ 
