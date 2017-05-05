@@ -32,7 +32,18 @@ while x == 1:
         print(m,n)
         n=n*(len(y)//len(g)+1)
         print(n)
-           
+        mn=list(zip(m,n))
+        print(list(mn))
+        com=[]
+        for a,b in mn: 
+            com.append(a+b)
+        print(com)
+        fin=[]
+        for y in com:
+            fin.append(associations[y])
+        print(fin)
+        ans=''.join(fin)
+        print(ans)    
    
    
     if wow == "q":
