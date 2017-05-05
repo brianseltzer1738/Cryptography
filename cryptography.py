@@ -43,7 +43,9 @@ while x == 1:
             fin.append(associations[y])
         print(fin)
         ans=''.join(fin)
-        print(ans)    
+        print(ans)
+        if com>associations:
+            
    
    
     if wow == "q":
