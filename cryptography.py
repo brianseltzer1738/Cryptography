@@ -4,6 +4,7 @@ cryptography.py
 Author: Brian S.
 Credit:
 Assignment:
++KF;B(CH=NIZ}m;R\Dt
 Write and submit a program that encrypts and decrypts user data.
 See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptography/blob/master/README.md
 To get a character's numeric representation, find the index of that character in the string 
@@ -29,26 +30,53 @@ while x == 1:
         n = []
         for msg in g:
             n.append(associations.find(msg))
-        print(m,n)
         n=n*(len(y)//len(g)+1)
-        print(n)
         mn=list(zip(m,n))
-        print(list(mn))
         com=[]
         for a,b in mn: 
-            com.append(a+b)
-        print(com)
+            r=a+b
+            if r>len(associations):
+                r-=len(associations)
+            com.append(r)
         fin=[]
         for y in com:
             fin.append(associations[y])
-        print(fin)
         ans=''.join(fin)
         print(ans)
-        if com>associations:
+        
+    if wow == "d":
+        yd = input("Message: ")
+        gd = input("Key: ")
+        yd = list(yd)
+        gd = list(gd)
+        md = []
+        for msg in yd:
+            md.append(associations.find(msg))
+        nd = []
+        for msg in gd:
+            nd.append(associations.find(msg))
+        nd=nd*(len(yd)//len(gd)+1)
+        mdnd=list(zip(md,nd))
+        comd=[]
+        for ad,bd in mdnd: 
+            rd=ad-bd
+            if rd>len(associations):
+                rd-=len(associations)
+            comd.append(rd)
+        find=[]
+        for yd in comd:
+            find.append(associations[yd])
+        ansd=''.join(find)
+        print(ansd)    
+        
+        
             
    
    
     if wow == "q":
+        print("Goodbye")
+        print("")
         x = 2
-    
+        
+
  
