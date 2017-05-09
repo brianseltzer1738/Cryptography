@@ -44,7 +44,7 @@ while x == 1:
         ans=''.join(fin)
         print(ans)
         
-    if wow == "d":
+    elif wow == "d":
         yd = input("Message: ")
         gd = input("Key: ")
         yd = list(yd)
@@ -67,16 +67,13 @@ while x == 1:
         for yd in comd:
             find.append(associations[yd])
         ansd=''.join(find)
-        print(ansd)    
-        
-        
-            
-   
-   
-    if wow == "q":
+        print(ansd) 
+    elif wow == "q":
         print("Goodbye")
         print("")
         x = 2
+    else:
+        print("Did not understand command, try again.")
         
 
  
