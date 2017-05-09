@@ -1,4 +1,3 @@
-
 """
 cryptography.py
 Author: Brian S.
