@@ -69,7 +69,7 @@ while x == 1:
         ansd=''.join(find)
         print(ansd) 
     elif wow == "q":
-        print("Goodbye")
+        print("Goodbye!")
         print("")
         x = 2
     else:
