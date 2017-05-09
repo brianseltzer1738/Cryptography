@@ -2,7 +2,7 @@
 """
 cryptography.py
 Author: Brian S.
-Credit:
+Credit: Finn and Mr. D
 Assignment:
 +KF;B(CH=NIZ}m;R\Dt
 Write and submit a program that encrypts and decrypts user data.
